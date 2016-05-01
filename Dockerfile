@@ -13,3 +13,10 @@ RUN cd /tmp && \
     rm -rf /tmp/*
 
 CMD /artifactory/bin/artifactory.sh
+
+VOLUME /artifactory/data
+VOLUME /artifactory/etc
+VOLUME /artifactory/logs
+VOLUME /artifactory/backup
+
+EXPOSE 8081
