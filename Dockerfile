@@ -11,17 +11,17 @@ ENV ARTIFACTORY_URL https://bintray.com/artifact/download/jfrog/artifactory/$ART
 RUN cd /tmp \
  && wget $ARTIFACTORY_URL \
  && unzip $ARTIFACTORY_FILE \
- && mv $ARTIFACTORY_NAME /artifactory/ \
+ && mv $ARTIFACTORY_NAME /usr/local/artifactory/ \
  && rm -rf /tmp/*
 
 
-VOLUME /artifactory/data
-VOLUME /artifactory/etc
-VOLUME /artifactory/logs
-VOLUME /artifactory/backup
+WORKDIR /usr/local/artifactory
+CMD bin/artifactory.sh
+
+
+VOLUME /usr/local/artifactory/data
+VOLUME /usr/local/artifactory/etc
+VOLUME /usr/local/artifactory/logs
+VOLUME /usr/local/artifactory/backup
 
 EXPOSE 8081
-
-
-WORKDIR /artifactory
-CMD bin/artifactory.sh
