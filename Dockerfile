@@ -1,4 +1,4 @@
-FROM lolhens/baseimage-oracle-jdk:latest
+FROM lolhens/baseimage-oraclejdk:latest
 MAINTAINER LolHens <pierrekisters@gmail.com>
 
 
