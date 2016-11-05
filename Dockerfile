@@ -9,7 +9,7 @@ ENV ARTIFACTORY_URL https://bintray.com/artifact/download/jfrog/artifactory/$ART
 
 
 RUN cd "/tmp" \
- && wget "$ARTIFACTORY_URL" \
+ && curl -LO "$ARTIFACTORY_URL" \
  && unzip "$ARTIFACTORY_FILE" \
  && mv "$ARTIFACTORY_NAME" "/usr/local/artifactory/" \
  && cleanimage
