@@ -15,6 +15,7 @@ RUN cd "/tmp" \
  && cleanimage
 
 RUN appfolders add "artifactory/data" "/usr/local/artifactory/data" \
+ && appfolders add "artifactory/access" "/usr/local/artifactory/access" \
  && appfolders add "artifactory/etc" "/usr/local/artifactory/etc" \
  && appfolders add "artifactory/logs" "/usr/local/artifactory/logs" \
  && appfolders add "artifactory/backup" "/usr/local/artifactory/backup"
