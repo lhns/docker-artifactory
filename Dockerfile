@@ -6,22 +6,23 @@ ENV ARTIFACTORY_VERSION 5.2.1
 ENV ARTIFACTORY_NAME artifactory-oss-$ARTIFACTORY_VERSION
 ENV ARTIFACTORY_FILE jfrog-$ARTIFACTORY_NAME.zip
 ENV ARTIFACTORY_URL https://bintray.com/artifact/download/jfrog/artifactory/$ARTIFACTORY_FILE
+ENV ARTIFACTORY_HOME /usr/local/artifactory
 
 
 RUN cd "/tmp" \
  && curl -LO $ARTIFACTORY_URL \
  && unzip $ARTIFACTORY_FILE \
- && mv $ARTIFACTORY_NAME "/usr/local/artifactory/" \
+ && mv $ARTIFACTORY_NAME $ARTIFACTORY_HOME \
  && cleanimage
 
-RUN appfolders add "artifactory/data" "/usr/local/artifactory/data" \
- && appfolders add "artifactory/access" "/usr/local/artifactory/access" \
- && appfolders add "artifactory/etc" "/usr/local/artifactory/etc" \
- && appfolders add "artifactory/logs" "/usr/local/artifactory/logs" \
- && appfolders add "artifactory/backup" "/usr/local/artifactory/backup"
+RUN appfolders add "artifactory/data" "$ARTIFACTORY_HOME/data" \
+ && appfolders add "artifactory/access" "$ARTIFACTORY_HOME/access" \
+ && appfolders add "artifactory/etc" "$ARTIFACTORY_HOME/etc" \
+ && appfolders add "artifactory/logs" "$ARTIFACTORY_HOME/logs" \
+ && appfolders add "artifactory/backup" "$ARTIFACTORY_HOME/backup"
 
 
-WORKDIR /usr/local/artifactory
+WORKDIR $ARTIFACTORY_HOME
 CMD bin/artifactory.sh
 
 
