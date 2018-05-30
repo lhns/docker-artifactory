@@ -2,7 +2,7 @@ FROM lolhens/baseimage-oraclejdk:latest
 MAINTAINER LolHens <pierrekisters@gmail.com>
 
 
-ENV ARTIFACTORY_VERSION 5.11.0
+ENV ARTIFACTORY_VERSION 6.0.1
 ENV ARTIFACTORY_NAME artifactory-oss-$ARTIFACTORY_VERSION
 ENV ARTIFACTORY_FILE jfrog-$ARTIFACTORY_NAME.zip
 ENV ARTIFACTORY_URL https://bintray.com/artifact/download/jfrog/artifactory/$ARTIFACTORY_FILE
