@@ -8,6 +8,7 @@ ENV ARTIFACTORY_FILE org%2Fartifactory%2Foss%2Fjfrog-artifactory-oss%2F${ARTIFAC
 ENV ARTIFACTORY_URL https://bintray.com/artifact/download/jfrog/artifactory/$ARTIFACTORY_FILE
 ENV ARTIFACTORY_HOME /usr/local/artifactory
 
+# TODO: install procps
 
 RUN cd "/tmp" \
  && curl -LO $ARTIFACTORY_URL \
