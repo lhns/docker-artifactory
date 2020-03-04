@@ -23,7 +23,7 @@ RUN appfolders add "artifactory/data" "$ARTIFACTORY_HOME/data" \
 
 
 WORKDIR $ARTIFACTORY_HOME
-CMD bin/artifactory.sh
+CMD app/bin/artifactory.sh
 
 
 VOLUME /usr/local/appdata/artifactory
