@@ -4,14 +4,14 @@ MAINTAINER LolHens <pierrekisters@gmail.com>
 
 ENV ARTIFACTORY_VERSION 7.2.1
 ENV ARTIFACTORY_NAME artifactory-oss-$ARTIFACTORY_VERSION
-ENV ARTIFACTORY_FILE jfrog-$ARTIFACTORY_NAME.zip
-ENV ARTIFACTORY_URL https://bintray.com/artifact/download/jfrog/artifactory/$ARTIFACTORY_FILE
+ENV ARTIFACTORY_FILE jfrog-${ARTIFACTORY_NAME}-linux.tar.gz
+ENV ARTIFACTORY_URL https://bintray.com/artifact/download/jfrog/artifactory/org%2Fartifactory%2Foss%2Fjfrog-artifactory-oss%2F${ARTIFACTORY_VERSION}%2F${ARTIFACTORY_FILE}
 ENV ARTIFACTORY_HOME /usr/local/artifactory
 
 
 RUN cd "/tmp" \
  && curl -LO $ARTIFACTORY_URL \
- && unzip $ARTIFACTORY_FILE \
+ && tar -xvzf $ARTIFACTORY_FILE \
  && mv $ARTIFACTORY_NAME $ARTIFACTORY_HOME \
  && cleanimage
 
