@@ -11,6 +11,7 @@ ENV ARTIFACTORY_HOME /usr/local/artifactory
 
 RUN cd "/tmp" \
  && curl -LO $ARTIFACTORY_URL \
+ && ls -l \
  && tar -xvzf $ARTIFACTORY_FILE \
  && mv $ARTIFACTORY_NAME $ARTIFACTORY_HOME \
  && cleanimage
