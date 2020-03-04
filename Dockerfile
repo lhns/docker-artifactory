@@ -15,11 +15,10 @@ RUN cd "/tmp" \
  && mv $ARTIFACTORY_NAME $ARTIFACTORY_HOME \
  && cleanimage
 
-RUN appfolders add "artifactory/data" "$ARTIFACTORY_HOME/data" \
- && appfolders add "artifactory/access" "$ARTIFACTORY_HOME/access" \
- && appfolders add "artifactory/etc" "$ARTIFACTORY_HOME/etc" \
- && appfolders add "artifactory/logs" "$ARTIFACTORY_HOME/logs" \
- && appfolders add "artifactory/backup" "$ARTIFACTORY_HOME/backup"
+RUN appfolders add "artifactory/data" "$ARTIFACTORY_HOME/var/data" \
+ && appfolders add "artifactory/etc" "$ARTIFACTORY_HOME/var/etc" \
+ && appfolders add "artifactory/log" "$ARTIFACTORY_HOME/var/log" \
+ && appfolders add "artifactory/backup" "$ARTIFACTORY_HOME/var/backup"
 
 
 WORKDIR $ARTIFACTORY_HOME
